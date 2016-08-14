@@ -1,12 +1,6 @@
 //bot created by Jeraldy Cascayan
 'use strict';
-
-var loading = "bot activated!";
-
-
-
-console.log(loading);
-
+let colors = require('colors')
 let util = require('util');
 let http = require('http');
 let Bot  = require('@kikinteractive/kik');
@@ -15,39 +9,112 @@ let Bot  = require('@kikinteractive/kik');
 let bot = new Bot({
     username: 'waznack',
     apiKey: '7cfc18d8-1011-4020-852f-aaa4be5f42d3',
-    baseUrl: 'https://ea2d6017.ngrok.io/'
+    baseUrl: 'https://14a72c56.ngrok.io/'
 });
  
 bot.updateBotConfiguration();
 
+var d = new Date();
+var hour = d.getHours();
+var minute = d.getMinutes();
+var sec = d.getSeconds();
+var timestamp = hour + ":" + minute + ":" + sec
 
-var insult = [
-	"u fuckin @waznack me and just stare at it. fuckin say hello",
-	"fuk off you scrub",
-	"faggot",
-	"i ought to fuk u up m8",
-	"1v1 me",
-	"ur mom",
-	"ur mom iz gay",
-	"stfu fagget",
-	"omg nub",
-	"u hax i repert u",
-	"ill rek u",
-	"dirty wanker",
-	"u r gay"
 
-]
+var botStart = "v0.2 waznack".rainbow + " online @ " + timestamp.cyan;
+var fullusername = "Jeraldy Cascayan".green
+var HoldUser;
+
+
+console.log('Created by ' + fullusername + ' a.k.a '.red + '@c0p'.yellow + ' on github');
+
+var insult = require('./ArraysOfInsults.js').insult
+
+
+
+
 
 function InsGen() {
 	var rand = insult[Math.floor(Math.random() * insult.length)]
 	return rand
 }
- 
+
  //bot
-bot.onTextMessage((message) => {
-    message.reply(InsGen());
+
+bot.onStartChattingMessage((message, next) => {
+    bot.getUserProfile(message.from)
+        .then((user) => {
+            message.reply('Hey ${user.username}!, I am waznack! the insultor bot!');
+        });
 });
+
+
+//OnTextMessage
+var insult = require('./ArraysOfInsults.js').insult;
+
+
+
+
+
+bot.onTextMessage((message, next) => {
+
+	var WhoInsult = message.body.split(" ")
+
+
+
+
+	//if user says info
+	if (message.body === 'info') {
+		message.reply('Commands: insult [username]');
+	} else if (WhoInsult[0] === "insult") {
+	var botsentdate = new Date();
+	var bothour = botsentdate.getHours();
+	var botminute = botsentdate.getMinutes();
+	var botsecond = botsentdate.getSeconds();
+	var fullhold = bothour + ":" + botminute + ":" + botsecond
+	var botInsultReply = InsGen()
+	var botReplyColor = botInsultReply.magenta,
+    UserReplyColor = message.body.green;
+	var UserHold = WhoInsult[1]; //username
+
+
+
+		bot.getUserProfile(message.from)
+	.then((user) => {
+
+			bot.send(botInsultReply, UserHold);
+    console.log(fullhold.cyan + ` ${user.username} ` + ' sent an insult message to : ' + UserHold.yellow);
+    console.log(fullhold.cyan+ " waznack replied : " + botReplyColor.magenta);
+        });
+  
+} else { 
+	// else do insults
+	var botsentdate = new Date();
+	var bothour = botsentdate.getHours();
+	var botminute = botsentdate.getMinutes();
+	var botsecond = botsentdate.getSeconds();
+	var fullhold = bothour + ":" + botminute + ":" + botsecond
+    UserReplyColor = message.body.green;
+    var BotReplyInsult = InsGen();
+
+bot.getUserProfile(message.from)
+	.then((user) => {
+			var ReplybotInsultReply = BotReplyInsult.magenta
+	message.reply(`${user.username},` + " " + BotReplyInsult);
+    console.log(fullhold.cyan + ` ${user.username} ` + ' said: ' + UserReplyColor);
+    console.log(fullhold.cyan+ " waznack replied : " + ReplybotInsultReply);
+        });
+  
+}
+});
+
+
  
+console.log(botStart); //bot activate
+
+
+
+
 
 // Set up your server and start listening 
 let server = http
