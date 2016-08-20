@@ -8,8 +8,8 @@ let Bot  = require('@kikinteractive/kik');
 // Configure the bot API endpoint, details for your bot 
 let bot = new Bot({
     username: 'waznack',
-    apiKey: '7cfc18d8-1011-4020-852f-aaa4be5f42d3',
-    baseUrl: 'https://6644357b.ngrok.io/'
+    apiKey: 'huh',
+    baseUrl: 'https://huh.ngrok.io/'
 });
  
 bot.updateBotConfiguration();
