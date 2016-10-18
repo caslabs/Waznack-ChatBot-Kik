@@ -1,4 +1,5 @@
 //bot created by Jeraldy Cascayan
+//figure out to scan the hello response 
 'use strict';
 let colors = require('colors')
 let util = require('util');
@@ -28,10 +29,51 @@ console.log('Created by ' + fullusername + ' a.k.a '.red + '@c0p'.yellow + ' on 
 var insult = require('./ArraysOfInsults.js').insult //import the variable insults onto here.
 
 //Generates a random number. var rand = insult[0 - insult.length]
-function InsGen() {
-	var rand = insult[Math.floor(Math.random() * insult.length)]
-	return rand
+function InsGen(which) {
+	switch(which){
+		case 0:
+			return insult[Math.floor(Math.random() * insult[0].length];
+			break;
+		case 1:
+			return insult[Math.floor(Math.random()* insult[1].length];
+			break;
+		case 2:
+			return insult[Math.floor(Math.random()* insult[2].length];
+			break;
+		case 3:
+			return insult[Math.floor(Math.random()* insult[3].length];
+			break;
+		case 4:
+			return insult[Math.floor(Math.random()* insult[4].length];
+			break;
+		case 5:
+			return insult[Math.floor(Math.random()* insult[5].length];
+			break;
+		case 6: 
+			return insult[Math.floor(Math.random()* insult[6].length];
+			break;
+		case 7:
+			return insult[Math.floor(Math.random()* insult.length];
+			break;
+	};
+	
 }
+//adds time stamp for message
+var Timestamp = function(){
+	var botsentdate = new Date();
+	var bothour = botsentdate.getHours();
+	var botminute = botsentdate.getMinutes();
+	var botsecond = botsentdate.getSeconds();
+	var fullhold = bothour + ":" + botminute + ":" + botsecond
+}
+/* function Search(List){
+	for(i in List){
+		
+	}
+} */
+var botInsultReply = ""; 
+var BotReplyColor = botInsultReply.magenta; //console.log magneta
+UserReplyColor = message.body.green; //console.log green colored user reply
 
 //If user isn't subscribed to bot, then send introduction 
 bot.onStartChattingMessage((message, next) => {
@@ -44,56 +86,97 @@ bot.onStartChattingMessage((message, next) => {
 
 //When User replies to bot
 bot.onTextMessage((message, next) => {
-var WhoInsult = message.body.split(" ") //WhoInsult turns message to ['i', 'am', 'an', 'example'];
+	var WhoInsult = message.body.split(" ") //WhoInsult turns message to ['i', 'am', 'an', 'example'];
 
 //if user says info
-if (message.body === 'info') {
+	if (message.body === 'info') {
 
 		message.reply('Commands: insult [username]'); //then bot says Commands: insult [username]
 
-} else if (WhoInsult[0] === "insult") { //else if user says 'insult'
-var botsentdate = new Date();
-var bothour = botsentdate.getHours();
-var botminute = botsentdate.getMinutes();
-var botsecond = botsentdate.getSeconds();
-var fullhold = bothour + ":" + botminute + ":" + botsecond
+	} 
+	
+	switch(WhoInsult){
+		
+		case WhoInsult[1] === "insult":  //else if user says 'insult'
+			Timestamp();
 
-/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
+			/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
 
-var botInsultReply = InsGen() //now holds random insult 
-var botReplyColor = botInsultReply.magenta, //console.log magneta colored bot reply
-UserReplyColor = message.body.green; //console.log green colored user reply
-var UserHold = WhoInsult[1]; //UserHold now holds [username]
+			var UserHold = WhoInsult[1]; //UserHold now holds [username]
 
-bot.getUserProfile(message.from)
-	.then((user) => {
-		bot.send(botInsultReply, UserHold); //replies insult to Userhold
+			bot.getUserProfile(message.from)
+			.then((user) => {
+				bot.send(InsGen(7), UserHold); //replies insult to Userhold
 
-    console.log(fullhold.cyan + ` ${user.username} ` + ' sent an insult message to : ' + UserHold.yellow); //console logs it
-    console.log(fullhold.cyan+ " waznack replied : " + botReplyColor.magenta); //console logs it
-        });
-  } else { 
-	// else insult username back
-var botsentdate = new Date();
-var bothour = botsentdate.getHours();
-var botminute = botsentdate.getMinutes();
-var botsecond = botsentdate.getSeconds();
-var fullhold = bothour + ":" + botminute + ":" + botsecond
+				console.log(fullhold.cyan + ` ${user.username} ` + ' sent an insult message to : ' + UserHold.yellow); //console logs it
+				console.log(fullhold.cyan+ " waznack replied : " + botReplyColor.magenta); //console logs it
+			});
+			break;
+		
+		case WhoInsult[1] === "you": // else insult username back with something from you 
+			Timestamp();
 
-/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
+		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
+			botInsultReply = InsGen(2);
+			UserReplyColor = message.body.green;//console.logs
+		//holds Ins()
+			bot.getUserProfile(message.from)
+			.then((user) => {
+			//console.log variable
+				message.reply(`${user.username},` + " " + botInsultReply); //!replies [username], InsGen();
+				console.log(fullhold.cyan + ` ${user.username} ` + ' said: ' + UserReplyColor); //console.log
+				console.log(fullhold.cyan+ " waznack replied : " + botInsultReply); //console.log
+			});
+			break;
+		
+		case WhoInsult[1] === "hello": // add hello responses here
+			Timestamp();
 
-UserReplyColor = message.body.green; //console.logs
-var BotReplyInsult = InsGen(); //holds Ins()
+		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
+			botInsultReply = InsGen(0);
+			UserReplyColor = message.body.green;//console.logs
+		//holds Ins()
+			bot.getUserProfile(message.from)
+			.then((user) => {
+			//console.log variable
+				message.reply(`${user.username},` + " " + botInsultReply); //!replies [username], InsGen();
+				console.log(fullhold.cyan + ` ${user.username} ` + ' said: ' + UserReplyColor); //console.log
+				console.log(fullhold.cyan+ " waznack replied : " + botInsultReply); //console.log
+			});
+			break;
+		
+		case WhoInsult[] === "goodbye": //add good bye responses here
+			Timestamp();
 
-bot.getUserProfile(message.from)
-	.then((user) => {
-			var ReplybotInsultReply = BotReplyInsult.magenta //console.log variable
-	message.reply(`${user.username},` + " " + BotReplyInsult); //!replies [username], InsGen();
-    console.log(fullhold.cyan + ` ${user.username} ` + ' said: ' + UserReplyColor); //console.log
-    console.log(fullhold.cyan+ " waznack replied : " + ReplybotInsultReply); //console.log
-        });
-  
-}
+		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
+			botInsultReply = InsGen(1);
+			UserReplyColor = message.body.green;//console.logs
+		//holds Ins()
+			bot.getUserProfile(message.from)
+			.then((user) => {
+			//console.log variable
+				message.reply(`${user.username},` + " " + botInsultReply)); //!replies [username], InsGen();
+				console.log(fullhold.cyan + ` ${user.username} ` + ' said: ' + UserReplyColor); //console.log
+				console.log(fullhold.cyan+ " waznack replied : " + botInsultReply); //console.log
+			});
+			break;
+			
+		case WhoInsult[1] === "deep down" || WhoInsult[1] === "Deep down":
+			Timestamp();
+
+		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
+			botInsultReply = InsGen(4);
+			UserReplyColor = message.body.green;//console.logs
+		//holds Ins()
+			bot.getUserProfile(message.from)
+			.then((user) => {
+			//console.log variable
+				message.reply(`${user.username},` + " " + botInsultReply)); //!replies [username], InsGen();
+				console.log(fullhold.cyan + ` ${user.username} ` + ' said: ' + UserReplyColor); //console.log
+				console.log(fullhold.cyan+ " waznack replied : " + botInsultReply); //console.log
+			});
+			break;
+	}	
 });
 
 
