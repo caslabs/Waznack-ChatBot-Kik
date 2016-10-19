@@ -39,28 +39,28 @@ var deep_down = ["deep"]
 function InsGen(which) {
 	switch(which){
 		case 0:
-			return insult[Math.floor(Math.random() * insult[0].length)];
+			return insult[[0]Math.floor(Math.random() * insult[0].length)];
 			break;
 		case 1:
-			return insult[Math.floor(Math.random()* insult[1].length)];
+			return insult[[1] Math.floor(Math.random()* insult[1].length)];
 			break;
 		case 2:
-			return insult[Math.floor(Math.random()* insult[2].length)];
+			return insult[[2] Math.floor(Math.random()* insult[2].length)];
 			break;
 		case 3:
-			return insult[Math.floor(Math.random()* insult[3].length)];
+			return insult[[3] Math.floor(Math.random()* insult[3].length)];
 			break;
 		case 4:
-			return insult[Math.floor(Math.random()* insult[4].length)];
+			return insult[[4] Math.floor(Math.random()* insult[4].length)];
 			break;
 		case 5:
-			return insult[Math.floor(Math.random()* insult[5].length)];
+			return insult[[5] Math.floor(Math.random()* insult[5].length)];
 			break;
 		case 6: 
-			return insult[Math.floor(Math.random()* insult[6].length)];
+			return insult[[6] Math.floor(Math.random() * insult[6].length)];
 			break;
 		case 7:
-			return insult[Math.floor(Math.random()* insult.length)];
+			return insult[ Math.floor(Math.random() * insult.length)];
 			break;
 	};
 	
