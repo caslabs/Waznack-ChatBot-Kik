@@ -26,34 +26,41 @@ var fullusername = "Jeraldy Cascayan".green // uses @ line 26
 var HoldUser; //holds 'insult [username]' when insulting
 console.log('Created by ' + fullusername + ' a.k.a '.red + '@c0p'.yellow + ' on github'); //Created by Jeraldy Cascayan a.k.a @c0p on github
 
-var insult = require('./ArraysOfInsults.js').insult //import the variable insults onto here.
+var insult = require('./ArraysOfInsults.js').insult; //import the variable insults onto here.
+
+//some list
+var Hello = ["hello","hallo","watup","hi","hola","bonjour","sup","bruh","boi"];
+var goodbye = ["bye","adios","goodbye"]
+var nice =["be","stop","bully"]
+var you = ["you"]
+var deep_down = ["deep"]
 
 //Generates a random number. var rand = insult[0 - insult.length]
 function InsGen(which) {
 	switch(which){
 		case 0:
-			return insult[Math.floor(Math.random() * insult[0].length];
+			return insult[Math.floor(Math.random() * insult[0].length)];
 			break;
 		case 1:
-			return insult[Math.floor(Math.random()* insult[1].length];
+			return insult[Math.floor(Math.random()* insult[1].length)];
 			break;
 		case 2:
-			return insult[Math.floor(Math.random()* insult[2].length];
+			return insult[Math.floor(Math.random()* insult[2].length)];
 			break;
 		case 3:
-			return insult[Math.floor(Math.random()* insult[3].length];
+			return insult[Math.floor(Math.random()* insult[3].length)];
 			break;
 		case 4:
-			return insult[Math.floor(Math.random()* insult[4].length];
+			return insult[Math.floor(Math.random()* insult[4].length)];
 			break;
 		case 5:
-			return insult[Math.floor(Math.random()* insult[5].length];
+			return insult[Math.floor(Math.random()* insult[5].length)];
 			break;
 		case 6: 
-			return insult[Math.floor(Math.random()* insult[6].length];
+			return insult[Math.floor(Math.random()* insult[6].length)];
 			break;
 		case 7:
-			return insult[Math.floor(Math.random()* insult.length];
+			return insult[Math.floor(Math.random()* insult.length)];
 			break;
 	};
 	
@@ -66,11 +73,18 @@ var Timestamp = function(){
 	var botsecond = botsentdate.getSeconds();
 	var fullhold = bothour + ":" + botminute + ":" + botsecond
 }
-/* function Search(List){
-	for(i in List){
-		
-	}
-} */
+	function Search(user_input,list){
+		user_input.toLowerCase();
+		i = 0;
+		if(user_input !== list[i]){
+			i++;
+			if(list[i] > list.length){
+				return False;
+			}
+		}
+		return True 
+	};
+ 
 var botInsultReply = ""; 
 var BotReplyColor = botInsultReply.magenta; //console.log magneta
 UserReplyColor = message.body.green; //console.log green colored user reply
@@ -113,7 +127,7 @@ bot.onTextMessage((message, next) => {
 			});
 			break;
 		
-		case WhoInsult[1] === "you": // else insult username back with something from you 
+		case search(who_insult[1],you): // else insult username back with something from you 
 			Timestamp();
 
 		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
@@ -129,7 +143,7 @@ bot.onTextMessage((message, next) => {
 			});
 			break;
 		
-		case WhoInsult[1] === "hello": // add hello responses here
+		case search(who_insult[1],hello): // add hello responses here
 			Timestamp();
 
 		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
@@ -145,7 +159,7 @@ bot.onTextMessage((message, next) => {
 			});
 			break;
 		
-		case WhoInsult[] === "goodbye": //add good bye responses here
+		case search(who_insult[1],goodbye): //add good bye responses here
 			Timestamp();
 
 		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
