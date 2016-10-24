@@ -29,10 +29,10 @@
 	"I would love it if you would quit being a valueless throat clam for at least a couple days.",
 	"lol you look like a mutated fuckin Wario who has autism",
 	"fucking inbreed socially fatass bastard fuckhole bitching bastard looking ass mofo ass bitch ass fuckboy",
-	"you smell like expired milk",
+	"you smell like expired milk"
 	],
 	[ //be nice (3)
-	"I don't want to be kind to you, even your own family doesn't want to be kind to you, perhaps it would save everyone a lot of trouble if you just ended it."
+	"I don't want to be kind to you, even your own family doesn't want to be kind to you, perhaps it would save everyone a lot of trouble if you just ended it.",
 	"shut the fuck up you sjw",
 	"Wake the fuck up you fairy twat",
 	"Fuck off you Pussy"
@@ -96,7 +96,7 @@
 	"you are g4y",
 	"so stupid",
 	"screenshot taken!..end report: you look retarded",
-	"ffs stop talking to me"
+	"ffs stop talking to me",
 	"So I know that you're a worthless shitfalcon, but holy sweet christ, kill yourself.",
 	"I was daydreaming about you on Thursday evening, and oh my shit-slinging fuck I wished to slam you in a revolting manner.",
 	"You're the first whore I've ever yearned to execute.",

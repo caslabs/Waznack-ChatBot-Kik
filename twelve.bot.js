@@ -10,7 +10,7 @@ let Bot  = require('@kikinteractive/kik');
 let bot = new Bot({
     username: 'waznack',
     apiKey: 'huh',
-    baseUrl: 'https://huh.ngrok.io/'
+    baseUrl: 'https://huh.ngrok.io'
 });
  
 bot.updateBotConfiguration();
@@ -29,38 +29,38 @@ console.log('Created by ' + fullusername + ' a.k.a '.red + '@c0p'.yellow + ' on 
 var insult = require('./ArraysOfInsults.js').insult; //import the variable insults onto here.
 
 //some list
-var Hello = ["hello","hallo","watup","hi","hola","bonjour","sup","bruh","boi"];
-var goodbye = ["bye","adios","goodbye"]
-var nice =["be","stop","bully"]
-var you = ["you"]
-var deep_down = ["deep"]
+var Hello = ["Hello","Hallo","Watup","Hi","Hola","Bonjour","Sup","Bruh","Boi"];
+var goodbye = ["Bye","Adios","Goodbye"]
+var nice =["Be","Stop","Bully"]
+var you = ["You"]
+var deep_down = ["Deep"]
 
 //Generates a random number. var rand = insult[0 - insult.length]
 function InsGen(which) {
 	switch(which){
 		case 0:
-			return insult[Math.floor(Math.random() * insult[0].length)];
+			return insult[[0]Math.floor(Math.random() * insult[0].length)];
 			break;
 		case 1:
-			return insult[Math.floor(Math.random()* insult[1].length)];
+			return insult[[1] Math.floor(Math.random()* insult[1].length)];
 			break;
 		case 2:
-			return insult[Math.floor(Math.random()* insult[2].length)];
+			return insult[[2] Math.floor(Math.random()* insult[2].length)];
 			break;
 		case 3:
-			return insult[Math.floor(Math.random()* insult[3].length)];
+			return insult[[3] Math.floor(Math.random()* insult[3].length)];
 			break;
 		case 4:
-			return insult[Math.floor(Math.random()* insult[4].length)];
+			return insult[[4] Math.floor(Math.random()* insult[4].length)];
 			break;
 		case 5:
-			return insult[Math.floor(Math.random()* insult[5].length)];
+			return insult[[5] Math.floor(Math.random()* insult[5].length)];
 			break;
 		case 6: 
-			return insult[Math.floor(Math.random()* insult[6].length)];
+			return insult[[6] Math.floor(Math.random() * insult[6].length)];
 			break;
 		case 7:
-			return insult[Math.floor(Math.random()* insult.length)];
+			return insult[ Math.floor(Math.random() * insult.length)];
 			break;
 	};
 	
@@ -74,20 +74,19 @@ var Timestamp = function(){
 	var fullhold = bothour + ":" + botminute + ":" + botsecond
 }
 	function Search(user_input,list){
-		user_input.toLowerCase();
-		i = 0;
-		if(user_input !== list[i]){
+		var i = 0;
+		while(i < list.length && list[i] != user_input){
 			i++;
-			if(list[i] > list.length){
-				return False;
-			}
 		}
-		return True 
-	};
+		if(i < list.length){
+			return true;
+		}else{
+			return false;
+		}
+		}
  
 var botInsultReply = ""; 
 var BotReplyColor = botInsultReply.magenta; //console.log magneta
-UserReplyColor = message.body.green; //console.log green colored user reply
 
 //If user isn't subscribed to bot, then send introduction 
 bot.onStartChattingMessage((message, next) => {
@@ -101,7 +100,7 @@ bot.onStartChattingMessage((message, next) => {
 //When User replies to bot
 bot.onTextMessage((message, next) => {
 	var WhoInsult = message.body.split(" ") //WhoInsult turns message to ['i', 'am', 'an', 'example'];
-
+	var UserReplyColor = message.body.green; //console.log green colored user reply
 //if user says info
 	if (message.body === 'info') {
 
@@ -111,7 +110,7 @@ bot.onTextMessage((message, next) => {
 	
 	switch(WhoInsult){
 		
-		case WhoInsult[1] === "insult":  //else if user says 'insult'
+		case WhoInsult[0] === "insult":  //else if user says 'insult'
 			Timestamp();
 
 			/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
@@ -127,7 +126,7 @@ bot.onTextMessage((message, next) => {
 			});
 			break;
 		
-		case search(who_insult[1],you): // else insult username back with something from you 
+		case Search(WhoInsult[0],you) === true: // else insult username back with something from you 
 			Timestamp();
 
 		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
@@ -143,7 +142,7 @@ bot.onTextMessage((message, next) => {
 			});
 			break;
 		
-		case search(who_insult[1],hello): // add hello responses here
+		case Search(WhoInsult[0],Hello)=== true: // add hello responses here
 			Timestamp();
 
 		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
@@ -159,7 +158,7 @@ bot.onTextMessage((message, next) => {
 			});
 			break;
 		
-		case search(who_insult[1],goodbye): //add good bye responses here
+		case Search(WhoInsult[0],goodbye) === true: //add good bye responses here
 			Timestamp();
 
 		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
@@ -169,13 +168,13 @@ bot.onTextMessage((message, next) => {
 			bot.getUserProfile(message.from)
 			.then((user) => {
 			//console.log variable
-				message.reply(`${user.username},` + " " + botInsultReply)); //!replies [username], InsGen();
+				message.reply(`${user.username},` + " " + botInsultReply); //!replies [username], InsGen();
 				console.log(fullhold.cyan + ` ${user.username} ` + ' said: ' + UserReplyColor); //console.log
 				console.log(fullhold.cyan+ " waznack replied : " + botInsultReply); //console.log
 			});
 			break;
 			
-		case WhoInsult[1] === "deep down" || WhoInsult[1] === "Deep down":
+		case WhoInsult[0] === "deep down" || WhoInsult[0] === "Deep down":
 			Timestamp();
 
 		/*CREATES TIME STAMP 00:00:00 ^ | SENDS INSULT MESSAGE V*/
@@ -185,7 +184,7 @@ bot.onTextMessage((message, next) => {
 			bot.getUserProfile(message.from)
 			.then((user) => {
 			//console.log variable
-				message.reply(`${user.username},` + " " + botInsultReply)); //!replies [username], InsGen();
+				message.reply(`${user.username},` + " " + botInsultReply); //!replies [username], InsGen();
 				console.log(fullhold.cyan + ` ${user.username} ` + ' said: ' + UserReplyColor); //console.log
 				console.log(fullhold.cyan+ " waznack replied : " + botInsultReply); //console.log
 			});
