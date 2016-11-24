@@ -1,3 +1,56 @@
+/*
+* WARNING !!!!! NFSW UP AHEAD
+* This array contains the most nonsense radical insults that my imagination spurred out from the past insults 
+* i've heard  irl, movies, shows, and the internet
+* 	
+* Please don't view IRL me from what you will see, im a cool bean behind my codes
+*
+*
+* 
+*
+*
+*
+*
+*
+*
+*
+*
+* with that said, DON'T SCROL DOWN IF YOU ARE EASILY TRIGGERED 
+*
+*
+*
+*
+*
+*
+*
+* FINAL WARNING!!
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  var insult = [
 	["fuk off you scrub", //hello,hallo,wattup, etc. (0)
