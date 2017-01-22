@@ -53,28 +53,28 @@
 
 
  var insult = [
-	["poop!", //hello,hallo,wattup, etc. (0)
-	"what now you cow!"
+	["Put your sentences here", //hello,hallo,wattup, etc. (0)
+	"Put your sentences here"
 	],
 	[ //(1)
 	,
-	"ok bye"
+	"Put your sentences here"
 	],
 	[ //(2)
 	,
-	"you smell like expired milk;p"
+	"Put your sentences here"
 	],
 	[ //be nice (3)
-	"you smell weird"
+	"Put your sentences here"
 	],
 	[ //(4)
-	"uuuokkk"
+	"Put your sentences here"
 	],
 	[
-	"no need to see",
+	"Put your sentences here",
 	],
 	["
-	 "ok"] //big 6
+	 "Put your sentences here"] //big 6
 ]
 
 exports.insult = insult
