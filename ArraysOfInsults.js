@@ -54,7 +54,7 @@
 
  var insult = [
 	["poop!", //hello,hallo,wattup, etc. (0)
-	"what now you mongrol"
+	"what now you cow!"
 	],
 	[ //(1)
 	,
